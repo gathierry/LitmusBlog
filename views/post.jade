@@ -1,0 +1,26 @@
+extends layout
+
+block nav
+  ul.nav
+    li
+      a(href='/') Home
+  ul.nav
+    li(class='active')
+      a(href='/blog') Blog
+
+block content
+  div.span10
+    form(method='post')
+      fieldset
+        legend New Blog
+        div.form-group
+          label.control-label(for='title') Title
+          div.controls
+            input.input-xxlarge(type='text',id='title',name='title')
+        div.form-group
+          label.control-label(for='content') Text
+          div.controls
+            textarea.input-xxlarge.span16(id='content',rows='10',name='post')
+        div.form-actions
+          button.btn.btn-primary(type='submit') Save
+          button.btn Cancel

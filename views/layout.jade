@@ -1,0 +1,30 @@
+doctype 5
+html
+  head
+    title=title
+    link(rel='stylesheet', type='text/css', href='stylesheets/bootstrap.css')
+    style
+      body{padding-left:30px;padding-right:30px;padding-top:20px;padding-bottom:40px;}
+      link(rel='stylesheet', type='txt/css', href='stylesheets/bootstrap-responsive.css')
+  body
+    div.navbar.navbar-inverse
+      div.navbar-inner
+        div.continer
+          a.btn.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.brand(href='/') Litmus Blog
+          div.nav-collapse
+            block nav
+
+    div#container.container-fluid
+      div.row-fluid
+        div.span2
+          h3 Timeline
+        block content
+    
+    hr
+    footer
+      p Copyright © 2013 Litmus.
+      p Made in Bejing

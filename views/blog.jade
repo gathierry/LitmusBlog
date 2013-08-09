@@ -1,0 +1,16 @@
+extends layout
+
+block nav
+  ul.nav
+    li
+      a(href='/') Home
+  ul.nav
+    li(class='active')
+      a(href='/blog') Blog
+
+block content
+  div.span10
+    each post in posts
+      h2= post.title
+      h5= post.time
+      p= post.post
