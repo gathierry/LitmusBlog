@@ -11,6 +11,6 @@ block nav
 block content
   div.span10
     each post in posts
-      h2: a(href='/blog/' + post.title)= post.title
+      h2: a(href='/blog-' + post.title)= post.title
       h5= post.time
       p= post.post
