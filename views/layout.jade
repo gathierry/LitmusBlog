@@ -29,6 +29,12 @@ html
       div.row-fluid
         div.span2
           h3 Timeline
+          - var lastTime
+          each timeline in timelines
+            if (timeline.time != lastTime) 
+              h4= timeline.time
+            p: a(href='/blog/' + timeline.title)= timeline.title
+            lastTime = timeline.time
         block content
     
     hr
