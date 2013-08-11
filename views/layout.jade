@@ -3,22 +3,25 @@ html
   head
     meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
     script(src='/javascripts/jquery.js')
-    script(src='/javascripts/bootstrap.js') 
+    script(src='/javascripts/bootstrap.js')
+    script(charset='utf-8', src='/editor/kindeditor-min.js')
+    script(charset='utf-8', src='/editor/lang/zh_CN.js')
+    script
+      var editor; KindEditor.ready(function(K) { editor = K.create('#editor_id'); });
     link(rel='stylesheet', type='text/css', href='/stylesheets/bootstrap.css')
-    link(rel='stylesheet', type='text/css', href='/stylesheets/docs.css')
+    link(rel='stylesheet', type='txt/css', href='/stylesheets/bootstrap-responsive.css')
     style
       body{padding-left:30px;padding-right:30px;padding-top:20px;padding-bottom:40px;}
-    link(rel='stylesheet', type='txt/css', href='/stylesheets/bootstrap-responsive.css')
     title=title
   body
     div.navbar.navbar-inverse
       div.navbar-inner
         div.continer
+          a.brand(href='/') Litmus Blog
           a.btn.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.brand(href='/') Litmus Blog
           div.nav-collapse
             block nav
 
