@@ -12,15 +12,15 @@ block content
   div.span10
     form(method='post')
       fieldset
-        legend New Blog
+        legend #{title}
         div.form-group
           label.control-label(for='title') Title
           div.controls
-            input.input-xxlarge(type='text',id='title',name='title')
+            input.input-xxlarge(type='text',id='title',name='title',value=(post==undefined)?'':post.title)
         div.form-group
           label.control-label(for='editor_id') Text
           div.controls
-            textarea.input-xxlarge.span16(id='editor_id',rows='15',name='post')
+            textarea.input-xxlarge.span16(id='editor_id',rows='15',name='post')= (post==undefined)?'':post.post
         div.form-actions
           button.btn.btn-primary(type='submit') Save
           a.button.btn(href='/') Cancel
