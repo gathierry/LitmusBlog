@@ -1,0 +1,19 @@
+extends layout
+
+block nav
+  ul.nav
+    li
+      a(href='/') Home
+  ul.nav
+    li(class='active')
+      a(href='/blog') Blog
+
+block content
+  div.span10
+    h2= post.title
+    h5= post.time
+    !{post.post}
+    p
+      a(href='/delete/' + post.title) Remove
+      |
+      a(href='/modify/' + post.title) Update
