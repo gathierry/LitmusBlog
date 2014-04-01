@@ -23,8 +23,9 @@ block content
             textarea.input-xxlarge.span16(id='editor_id',rows='15',name='post')= (post==undefined)?'':post.post
         div.form-group
           label.control-label(for='title') Tag
-          div.controls
-            input.input-xxlarge(type='text',id='tag',name='tag',value=(post==undefined)?'':post.tag)
+          select(multiple='multiple', id='tag',name='tag',value=(post==undefined)?'':post.tag)
+            each timeline in timelines
+             option #{timeline}
         div.form-actions
           button.btn.btn-primary(type='submit') Save
           a.button.btn(href='/') Cancel
