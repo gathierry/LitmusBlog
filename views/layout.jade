@@ -27,13 +27,14 @@ html
 
     div#container.container-fluid
       div.row-fluid
-        div.span2
-          - var lastTime
-          each timeline in timelines
-            if (timeline.time != lastTime) 
-              h4= timeline.time
-            p: a(href='/blog/' + timeline.title)= timeline.title
-            lastTime = timeline.time
+        div.span3
+          div.well
+            - var lastTime
+            each timeline in timelines
+              if (timeline.time != lastTime)
+                h4= timeline.time
+              p: a(href='/blog/' + timeline.title)= timeline.title
+              lastTime = timeline.time
         block content
     
     hr

@@ -9,7 +9,7 @@ block nav
       a(href='/blog') Blog
 
 block content
-  div.span10
+  div.span9
     each post, i in posts
       if(i != 10)
         h2: a(href='/blog/' + post.title)= post.title
