@@ -20,7 +20,7 @@ block content
         div.form-group
           label.control-label(for='editor_id') Text
           div.controls
-            textarea.form-control.span16(id='editor_id',rows='15',name='post')= (post==undefined)?'':post.post
+            textarea.form-control(id='editor_id',rows='15',name='post')= (post==undefined)?'':post.post
         div.form-group
           label.control-label(for='title') Tag
           select.form-control(multiple='multiple', id='tag',name='tag',value=(post==undefined)?'':post.tag)
