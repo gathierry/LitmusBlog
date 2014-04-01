@@ -10,17 +10,20 @@ block nav
 
 block content
   div.span9
-    each post, i in posts
-      if(i != 10)
-        h2: a(href='/blog/' + post.title)= post.title
-        h5= post.time
-        p= post.post
+    - var lastTime
+    each post,i in posts
+      if (i != 20)
+        if (post.time != lastTime)
+          h3= post.time
+        li
+          h4: a(href='/blog/' + post.title)= post.title
+        lastTime = post.time
 
     div
       ul.pager
         if(page-1)
           li.previous
             a(title='last page', href='?p=' + (page-1) ) &larr;
-        if(postsLen==11)
+        if(postsLen==21)
           li.next
             a(title='next page', href='?p=' + (page+1)) &rarr;

@@ -6,11 +6,11 @@ html
     script(src='/javascripts/bootstrap.js')
     script(charset='utf-8', src='/editor/kindeditor-min.js')
     script(charset='utf-8', src='/editor/lang/zh_CN.js')
-    script
+    script.
       var editor; KindEditor.ready(function(K) { editor = K.create('#editor_id'); });
     link(rel='stylesheet', type='text/css', href='/stylesheets/bootstrap.css')
     link(rel='stylesheet', type='txt/css', href='/stylesheets/bootstrap-responsive.css')
-    style
+    style.
       body{padding-left:30px;padding-right:30px;padding-top:20px;padding-bottom:40px;}
     title=title
   body
@@ -29,12 +29,8 @@ html
       div.row-fluid
         div.span3
           div.well
-            - var lastTime
             each timeline in timelines
-              if (timeline.time != lastTime)
-                h4= timeline.time
-              p: a(href='/blog/' + timeline.title)= timeline.title
-              lastTime = timeline.time
+              p: a(href='/tag/' + timeline)= timeline
         block content
     
     hr
