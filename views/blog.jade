@@ -15,12 +15,12 @@ block content
         h2: a(href='/blog/' + post.title)= post.title
         h5= post.time
         p= post.post
-    div
-      if(page-1)
-        span(style='float: left;')
-          a(title='last page', href='?p=' + (page-1) ) last page
 
-      if(postsLen==11)
-        span(style='float: right;')
-          a(title='next page', href='?p=' + (page+1)) next page
-      
+    div
+      ul.pager
+        if(page-1)
+          li.previous
+            a(title='last page', href='?p=' + (page-1) ) &larr;
+        if(postsLen==11)
+          li.next
+            a(title='next page', href='?p=' + (page+1)) &rarr;

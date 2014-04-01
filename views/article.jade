@@ -10,10 +10,7 @@ block nav
 
 block content
   div.span9
-    h2= post.title
-    h5= post.time
-    !{post.post}
-    p
-      a(href='/delete/' + post.title) Remove
-      |
-      a(href='/modify/' + post.title) Update
+    div.row-fluid
+      h2= post.title
+      h5= post.time
+      !{post.post}
