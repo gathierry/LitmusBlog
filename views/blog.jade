@@ -9,14 +9,13 @@ block nav
       a(href='/blog') Blog
 
 block content
-  div.span9
-    - var lastTime
+  - var lastTime
     each post,i in posts
       if (i != 20)
         if (post.time != lastTime)
           h3= post.time
         li
-          h4: a(href='/blog/' + post.title)= post.title
+          h4: a.text-warning(href='/blog/' + post.title)= post.title
         lastTime = post.time
 
     div
