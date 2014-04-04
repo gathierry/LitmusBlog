@@ -1,15 +1,8 @@
 extends layout
 
 block nav
-  ul.nav.navbar-nav
-    li
-      a(href='/') Home
-  ul.nav.navbar-nav
-    li(class='active')
-      a(href='/blog') Blog
+  +navBar(1)
 
 block content
   div.row-fluid
-    h2= post.title
-    h5= post.time
-    !{post.post}
+    +post(post.title, post.time, post.post)

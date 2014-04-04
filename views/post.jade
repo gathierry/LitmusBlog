@@ -1,12 +1,7 @@
 extends layout
 
 block nav
-  ul.nav.navbar-nav
-    li
-      a(href='/') Home
-  ul.nav.navbar-nav
-    li(class='active')
-      a(href='/blog') Blog
+  +navBar(1)
 
 block content
     form(method='post')
@@ -23,8 +18,9 @@ block content
         div.form-group
           label.control-label(for='title') Tag
           select.form-control(multiple='multiple', id='tag',name='tag',value=(post==undefined)?'':post.tag)
-            each timeline in timelines
-             option #{timeline}
+            each tag in tags
+             option #{tag}
+        hr
         div.form-actions
           button.btn.btn-primary(type='submit') Save
           a.button.btn.btn-warning(href='/') Cancel
