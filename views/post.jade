@@ -4,7 +4,7 @@ block nav
   +navBar(1)
 
 block content
-    form(method='post')
+    form(method='post', enctype='multipart/form-data')
       fieldset
         legend #{title}
         div.form-group
@@ -16,10 +16,13 @@ block content
           div.controls
             textarea.form-control(id='editor_id',rows='15',name='post')= (post==undefined)?'':post.post
         div.form-group
-          label.control-label(for='title') Tag
+          label.control-label(for='tag') Tag
           select.form-control(multiple='multiple', id='tag',name='tag',value=(post==undefined)?'':post.tag)
             each tag in tags
              option #{tag}
+        div.form-group
+          label(for='uploadImg') Cover Image
+          input#uploadImg(type='file', name='cImage')
         hr
         div.form-actions
           button.btn.btn-primary(type='submit') Save

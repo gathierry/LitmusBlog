@@ -6,11 +6,11 @@ block nav
 block content
   - each post, i in posts
     if (i < (posts.length-1) || i == 0)
-      +post(post.title, post.time, post.post)
+      +post(post.title, post.time, "", post.post)
       a.btn.btn-primary.btn-xs(href='/blog/' + title)
         | Read More
         span.glyphicon.glyphicon-chevron-right
-    hr
+      hr
 
   div
     ul.pager

@@ -1,8 +1,11 @@
-mixin post(title, time, post)
+mixin post(title, time, imgSrc, post)
   h1: a.text-warning(href='/blog/' + title)= title
   p
     span.glyphicon.glyphicon-time
     |  Posted on #{time}
+  - if (imgSrc.length)
+    hr
+    img.img-responsive(src=imgSrc, width='400', height='100')
   hr
   div
     !{post}
