@@ -53,6 +53,13 @@ html
           block content
         div.col-lg-3
           div.well
+            h4 Blog Search
+            form(action='/search', method='get')
+              div.input-group
+                input.form-control(type='text', name='keyword')
+                span.input-group-btn
+                  button.btn.btn-default(type='submit') Go
+          div.well
             - each tag in tags
               h5: a.text-warning(href='/tag/' + timeline)= tag
 
