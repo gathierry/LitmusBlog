@@ -1,0 +1,17 @@
+extends layout
+
+block nav
+  +navBar(2)
+
+block content
+  h1 About me
+  hr
+  strong 关于我 (04/2014更新)
+  img.img-responsive(src='/img/aboutMeImg.jpg', width='595', height='293')
+  blockquote
+    p
+      | 平明寻白<strong>羽</strong>，没在<strong>石</strong>棱中
+    small
+      | 卢纶
+      cite(title='Source Title') 《塞下曲》
+    

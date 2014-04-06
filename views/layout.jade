@@ -11,8 +11,8 @@ mixin post(title, time, imgSrc, post)
     !{post}
     
 mixin navBar(indexActive)
-  - var titles = ['Home', 'Blog'];
-  - var hrefs = ['/', '/blog'];
+  - var titles = ['HOME', 'BLOG', 'ABOUT ME'];
+  - var hrefs = ['/', '/blog', '/about-me'];
   - each title, i in titles
     ul.nav.navbar-nav
       - if (i == indexActive)
@@ -35,6 +35,7 @@ html
       var editor; KindEditor.ready(function(K) { editor = K.create('#editor_id'); });
     link(rel='stylesheet', type='text/css', href='/stylesheets/bootstrap.css')
     link(rel='stylesheet', type='txt/css', href='/stylesheets/bootstrap-responsive.css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/font-awesome.css')
     style.
       body{padding-left:30px;padding-right:30px;padding-top:20px;padding-bottom:40px;}
     title=title
@@ -44,6 +45,7 @@ html
         div.navbar-header
           button.navbar-toggle(data-toggle='collapse', data-target='#bs-example-navbar-collapse-9')
             span.sr-only
+            span.icon-bar
             span.icon-bar
             span.icon-bar
           a.navbar-brand(href='/') Litmus Blog
