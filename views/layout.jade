@@ -11,8 +11,8 @@ mixin post(title, time, imgSrc, post)
     !{post}
     
 mixin navBar(indexActive)
-  - var titles = ['BLOG', 'LIST', 'ABOUT ME', 'CONTACT'];
-  - var hrefs = ['/blog','/list', '/about-me', '/contact'];
+  - var titles = ['BLOG', 'LIST', 'ABOUT ME'];
+  - var hrefs = ['/blog','/list', '/about-me'];
   ul.nav.navbar-nav
     - each title, i in titles 
       - if (i == indexActive)
@@ -65,7 +65,7 @@ html
             small Recent Posts        
           - each recentPost, i in recentPosts
             hr
-            h3: a.text-warning(href='/blog/' + title)= recentPost.title
+            h3: a.text-warning(href='/blog/' + recentPost.title)= recentPost.title
             h5 
               small #{recentPost.time} 
      

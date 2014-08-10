@@ -92,7 +92,7 @@ Post.getOne = function getOne(title, callback) {
                 var time = post.time;
                 if (doc.imgSrc == null) post.imgSrc = "";
                 post.time = time.getFullYear() + "-" + (time.getUTCMonth()+1) + "-" + time.getUTCDate();
-                post.post = markdown.toHTML(post.post);
+                if (post.post.substring(0,3) != '<p>') post.post = markdown.toHTML(post.post);
                 callback(null, post);
             });
         });
