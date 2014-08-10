@@ -5,7 +5,7 @@ mixin post(title, time, imgSrc, post)
     |  Posted on #{time}
   - if (imgSrc.length)
     hr
-    img.img-rounded(src=imgSrc, width='858', height='300')
+    img.img-rounded(src=imgSrc, width='858')
   hr
   div
     !{post}
@@ -36,6 +36,7 @@ html
       body{padding-left:30px;padding-right:30px;padding-top:20px;padding-bottom:40px;}
     title=title
   body
+    img.img-responsive(src='/img/TopImage.png')
     nav.navbar.navbar-inverse(role='navigation')
       div.container
         div.navbar-header
