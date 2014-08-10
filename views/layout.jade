@@ -11,10 +11,10 @@ mixin post(title, time, imgSrc, post)
     !{post}
     
 mixin navBar(indexActive)
-  - var titles = ['HOME', 'BLOG', 'ABOUT ME', 'MY APPS'];
-  - var hrefs = ['/', '/blog', '/about-me', '/my-apps'];
-  - each title, i in titles
-    ul.nav.navbar-nav
+  - var titles = ['BLOG', 'LIST', 'ABOUT ME', 'CONTACT'];
+  - var hrefs = ['/blog','/list', '/about-me', '/contact'];
+  ul.nav.navbar-nav
+    - each title, i in titles 
       - if (i == indexActive)
         li(class='active')
           a(href=hrefs[i])= titles[i]
@@ -29,10 +29,6 @@ html
     meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
     script(src='/javascripts/jquery.js')
     script(src='/javascripts/bootstrap.js')
-    script(charset='utf-8', src='/editor/kindeditor-min.js')
-    script(charset='utf-8', src='/editor/lang/zh_CN.js')
-    script.
-      var editor; KindEditor.ready(function(K) { editor = K.create('#editor_id'); });
     link(rel='stylesheet', type='text/css', href='/stylesheets/bootstrap.css')
     link(rel='stylesheet', type='txt/css', href='/stylesheets/bootstrap-responsive.css')
     link(rel='stylesheet', type='text/css', href='/stylesheets/font-awesome.css')
@@ -48,10 +44,11 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href='/') Litmus Blog
+          a.navbar-brand(href='/') Shiyu's Blog
         div.collapse.navbar-collapse
           block nav
 
+   
     div.container
       div.row
         div.col-lg-9
@@ -64,11 +61,16 @@ html
                 input.form-control(type='text', name='keyword')
                 span.input-group-btn
                   button.btn.btn-default(type='submit') Go
-          div.well
-            - each tag in tags
-              h5: a.text-warning(href='/tag/' + tag)= tag
+          h2 
+            small Recent Posts        
+          - each recentPost, i in recentPosts
+            hr
+            h3: a.text-warning(href='/blog/' + title)= recentPost.title
+            h5 
+              small #{recentPost.time} 
+     
 
     hr
     footer
-      p Copyright © 2013 Litmus.
+      p Copyright © 2013 Li Shiyu.
       p Made in Beijing

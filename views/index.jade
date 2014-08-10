@@ -1,21 +1,22 @@
 extends layout
 
 block nav
-  +navBar(0)
+  +navBar()
 
 block content
-  div.jumbotron
-    h1 Thierry
-    p 写字吐槽的地方
+  - each post, i in posts
+    if (i < (posts.length-1) || i == 0)
+      if (i == 0) 
+        +post(post.title, post.time, post.imgSrc, post.post)
+      else 
+        +post(post.title, post.time, "", post.post)
+        a.btn.btn-primary.btn-xs(href='/blog/' + post.title)
+          | Read More
+          span.glyphicon.glyphicon-chevron-right
+      hr
 
-  div.row-fluid
-    div.col-md-5
-      h2 We Rule the School
-      p.
-        Do something pretty while you can.
-  
-    div.col-md-5
-      h2 Liverpool FC
-      p.
-        You'll never walk alone.
-        
+  div
+    ul.pager
+      - if(posts.length==11)
+        li.next
+          a(title='next page', href='blog?p=2') &rarr;

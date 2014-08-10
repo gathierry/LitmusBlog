@@ -1,0 +1,25 @@
+!!! transitional
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    script(src='/javascripts/jquery.js')
+    script(src='/javascripts/bootstrap.js')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/bootstrap.css')
+    link(rel='stylesheet', type='txt/css', href='/stylesheets/bootstrap-responsive.css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/font-awesome.css')
+    style.
+      body{padding-left:30px;padding-right:30px;padding-top:20px;padding-bottom:40px;}
+    title=title
+  body
+    form.form-horizontal(method='post', enctype='multipart/form-data')
+      div.form-group
+        label.col-sm-2.control-label Email
+        div.col-sm-10
+          input.form-control(type='username', name='username', placeholder='Username')
+      div.form-group
+        label.col-sm-2.control-label Password
+        div.col-sm-10
+          input.form-control(type='password', name='password', placeholder='Password')
+      div.form-group
+        div.col-sm-offset-2.col-sm-10
+          button.btn.btn-primary(type='submit') Sign in

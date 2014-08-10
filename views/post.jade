@@ -1,7 +1,7 @@
 extends layout
 
 block nav
-  +navBar(1)
+  +navBar(0)
 
 block content
     form(method='post', enctype='multipart/form-data')
@@ -16,14 +16,11 @@ block content
           div.controls
             textarea.form-control(id='editor_id',rows='15',name='post')= (post==undefined)?'':post.post
         div.form-group
-          label.control-label(for='tag') Tag
-          select.form-control(multiple='multiple', id='tag',name='tag',value=(post==undefined)?'':post.tag)
-            each tag in tags
-             option #{tag}
-        div.form-group
           label(for='uploadImg') Cover Image
           input#uploadImg(type='file', name='cImage')
+        div.checkbox
+          label(for='private') Private
+            input(type='checkbox', name='tag') 
         hr
         div.form-actions
-          button.btn.btn-primary(type='submit') Save
-          a.button.btn.btn-warning(href='/') Cancel
+          button.btn.btn-primary(type='submit') Submit
