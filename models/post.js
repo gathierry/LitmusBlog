@@ -21,7 +21,6 @@ Post.prototype.save = function save(callback) {
         imgSrc:this.imgSrc,
     };
     post.tag = (this.tag == undefined) ? false : true;
-    post.imgSrc = post.imgSrc.substring (6, post.imgSrc.length);
     mongodb.open(function(err, db) {
         if(err) return callback(err);
         db.collection('posts', function(err, collection) {
@@ -35,7 +34,6 @@ Post.prototype.save = function save(callback) {
                 var exist = doc?true:false;   
                 if(exist) {
                     post.time = doc.time;
-                    post.imgSrc = post.imgSrc.length ? post.imgSrc : doc.imgSrc;
                     collection.update(doc, post, function(err, post){
                         mongodb.close();
                         callback(err, post);

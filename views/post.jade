@@ -16,8 +16,9 @@ block content
           div.controls
             textarea.form-control(id='editor_id',rows='15',name='post')= (post==undefined)?'':post.post
         div.form-group
-          label(for='uploadImg') Cover Image
-          input#uploadImg(type='file', name='cImage')
+          label.control-label(for='uploadImg') Cover Image
+          div.controls
+            input.form-control(type='text',id='file',name='imgSrc',value=(post==undefined)?'':post.imgSrc)
         div.checkbox
           label(for='private') Private
             input(type='checkbox', name='tag') 

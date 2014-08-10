@@ -16,6 +16,9 @@
 /about-me : ABOUT ME  
 /contact : CONTACT
 
+##Picture Resources
+[网易相册](http://photo.163.com/ligary04@hotmail.com/#m=0&p=1)
+
 ===
 
 #Change Log

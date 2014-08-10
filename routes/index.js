@@ -86,13 +86,8 @@ module.exports = function(app){
     });
 
     app.post('/post', function(req, res){     
-        //upload image
-        var imgSrc = '';
-        var image = req.files.cImage;
-        if (image.size > 0) imgSrc = image.path;
-        else fs.unlinkSync(image.path);
-        var post = new Post(req.body.title, req.body.post, new Date(), req.body.tag, imgSrc);
-        if (req.body.title.length || req.body.post.length) {
+        var post = new Post(req.body.title, req.body.post, new Date(), req.body.tag, req.body.imgSrc);
+        if (req.body.title.length && req.body.post.length) {
             post.save(function(err) {
                 return res.redirect('/blog');
             });
@@ -124,12 +119,8 @@ module.exports = function(app){
     });      
 
     app.post('/blog/:title/update', function(req, res){
-        var imgSrc = '';
-        var image = req.files.cImage;
-        if (image.size > 0) imgSrc = image.path;
-        else fs.unlinkSync(image.path);
-        var post = new Post(req.body.title, req.body.post, new Date(), req.body.tag, imgSrc);
-        if (req.body.title.length || req.body.post.length) {
+        var post = new Post(req.body.title, req.body.post, new Date(), req.body.tag, req.body.imgSrc);
+        if (req.body.title.length && req.body.post.length) {
             post.save(function(err) {
                 return res.redirect('/blog');
             });
