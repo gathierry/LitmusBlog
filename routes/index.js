@@ -75,7 +75,6 @@ module.exports = function(app){
 
     app.get('/post', checkAdmin);
     app.get('/post', function(req, res){
-        if (req.session.user != 'admin') return res.redirect('/login');
         Post.getRecent(prive, function(err, recentPosts){
             if (err) recentPosts = [];
             res.render('post', {
@@ -97,14 +96,12 @@ module.exports = function(app){
     app.get('/blog/:title/delete', checkAdmin);
     app.get('/blog/:title/delete', function(req, res){
         Post.deleteArticle(req.params.title, function(err){
-            if (req.session.user != 'admin') return res.redirect('/login');
             return res.redirect('/blog');      
         });    
     });
 
     app.get('/blog/:title/update', checkAdmin);
     app.get('/blog/:title/update', function(req, res){
-        if (req.session.user != 'admin') return res.redirect('/login');
         Post.updateOne(req.params.title, function(err, post){
             if (err) post = [];
             Post.getRecent(prive, function(err, recentPosts){
@@ -195,11 +192,11 @@ module.exports = function(app){
         }
         return res.redirect('/login');
     });
-    
+
     function checkAdmin(req, res, next){
         prive = (req.session.user == 'admin');
         next();
     }
-    
+
 };
 

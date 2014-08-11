@@ -17,7 +17,7 @@
 /contact : CONTACT
 
 ##Picture Resources
-[百度云](http://pan.baidu.com/s/1pJyRHiV#dir/path=%2FImages%20for%20blog)
+[七牛云储存](http://www.qiniu.com)
 size 858x300
 
 ===
