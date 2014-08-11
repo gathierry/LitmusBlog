@@ -17,7 +17,7 @@
 /contact : CONTACT
 
 ##Picture Resources
-[网易相册](http://photo.163.com/ligary04@hotmail.com/#m=0&p=1)
+[百度云](http://pan.baidu.com/s/1pJyRHiV#dir/path=%2FImages%20for%20blog)
 size 858x300
 
 ===
