@@ -73,5 +73,31 @@ html
 
     hr
     footer
+      - if (!login)
+        p: a(data-toggle='modal', data-target='#loginModal') Administration Login
+      - else
+        p: a(href='/logout') Administration Logout
       p Copyright © 2013 Li Shiyu.
       p Made in Beijing
+
+    form.form-horizontal(method='post', action='/login', enctype='multipart/form-data')
+      div.modal.fade(id='loginModal', tabindex='-1', role='dialog', aria-labelledby='loginModalLabel', aria-hidden='true')
+        div.modal-dialog
+          div.modal-content
+            div.modal-header
+              button.close(type='button', data-dismiss='modal')
+                span(span aria-hidden='true')&times;
+                span.sr-only Close
+              h4.modal-title(id='loginModalLabel') Login
+            div.modal-body
+              div.form-group
+                label.col-sm-2.control-label Email
+                div.col-sm-10
+                  input.form-control(type='username', name='username', placeholder='Username')
+              div.form-group
+                label.col-sm-2.control-label Password
+                div.col-sm-10
+                  input.form-control(type='password', name='password', placeholder='Password')
+            div.modal-footer
+              button.btn.btn-default(type='button', data-dismiss='modal') Close
+              button.btn.btn-primary(type='submit') Log in

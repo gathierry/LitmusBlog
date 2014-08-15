@@ -29,6 +29,7 @@ module.exports = function(app){
                         title:'Shiyu\'s Blog | Li Shiyu Blog',
                         posts:posts,
                         recentPosts:recentPosts,
+                        login:prive,
                     });
 
 
@@ -53,6 +54,7 @@ module.exports = function(app){
                     page:page,
                     posts:posts,
                     recentPosts:recentPosts,
+                    login:prive,
                 });
             });
         });
@@ -68,6 +70,7 @@ module.exports = function(app){
                     title:req.params.title,
                     post:post,
                     recentPosts:recentPosts,
+
                 });
             });
         });
@@ -80,6 +83,7 @@ module.exports = function(app){
             res.render('post', {
                 title:'New Blog',
                 recentPosts:recentPosts,
+                login:prive,
             });
         });
     });
@@ -110,6 +114,7 @@ module.exports = function(app){
                     title:req.params.title,
                     post:post,
                     recentPosts:recentPosts,
+                    login:prive,
                 });
             });
         });      
@@ -139,6 +144,7 @@ module.exports = function(app){
                     posts:posts,
                     keyword:req.query.keyword,
                     recentPosts:recentPosts,
+                    login:prive,
                 });
             });
         });
@@ -158,6 +164,7 @@ module.exports = function(app){
                     page:page,
                     posts:posts,
                     recentPosts:recentPosts,
+                    login:prive,
                 });
             });
         });
@@ -170,6 +177,7 @@ module.exports = function(app){
             res.render('aboutMe', {
                 title:'About me',
                 recentPosts:recentPosts,
+                login:prive,
             });
         });
     });
@@ -186,11 +194,12 @@ module.exports = function(app){
     });
 
     app.post('/login', function(req, res){
+        console.log(req.header('Referer'));
         if (req.body.username == 'litmus' && req.body.password == '10241072') {
             req.session.user = 'admin';
-            return res.redirect('/');
+            return res.redirect('back');
         }
-        return res.redirect('/login');
+        return res.redirect('/');
     });
 
     function checkAdmin(req, res, next){
