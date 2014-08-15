@@ -106,6 +106,7 @@ module.exports = function(app){
 
     app.get('/blog/:title/update', checkAdmin);
     app.get('/blog/:title/update', function(req, res){
+        //if (!prive) res.redirect('/login');
         Post.updateOne(req.params.title, function(err, post){
             if (err) post = [];
             Post.getRecent(prive, function(err, recentPosts){
@@ -194,7 +195,6 @@ module.exports = function(app){
     });
 
     app.post('/login', function(req, res){
-        console.log(req.header('Referer'));
         if (req.body.username == 'litmus' && req.body.password == '10241072') {
             req.session.user = 'admin';
             return res.redirect('back');
