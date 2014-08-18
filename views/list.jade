@@ -12,7 +12,8 @@ block content
             tr
               td #{post.time}
               td
-                h5: a.text-warning(href='/blog/' + post.title)= post.title 
+                - var escapedTitle = encodeURIComponent(post.title)
+                h5: a.text-warning(href='/blog/' + escapedTitle)= post.title 
   div
     ul.pager
       - if(page-1)

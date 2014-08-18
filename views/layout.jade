@@ -1,5 +1,6 @@
 mixin post(title, time, imgSrc, post)
-  h1: a.text-warning(href='/blog/' + title)= title
+  - var escapedTitle = encodeURIComponent(title)
+  h1: a.text-warning(href='/blog/' + escapedTitle)= title
   p
     span.glyphicon.glyphicon-time
     |  Posted on #{time}
